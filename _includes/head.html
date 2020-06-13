@@ -63,5 +63,11 @@
         ga('create', 'UA-8161570-6', 'auto');
         ga('send', 'pageview');
     </script>
-
+    
+    <!-- Redirection to https -->
+    <script>
+        // 判断非本机且未使用 https 时，强制重定向到 https。
+        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol != "https:"))
+            window.location = window.location.toString().replace(/^http:/, "https:");
+    </script>
 </head>
