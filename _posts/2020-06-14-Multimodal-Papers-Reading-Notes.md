@@ -1,6 +1,5 @@
 ---
 layout: post
-comments: false
 title: "Multimodal Papers Reading Notes 多模态论文阅读笔记"
 date: 2020-06-14 12:00:00
 tags: exploration multimodal

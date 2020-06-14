@@ -3,6 +3,7 @@ name: "Zhizhou Yu's Blog"
 author: Zhizhou Yu
 description: Personal Essays.
 profile_url: "https://zhizhou-yu.github.io"
+future: true
 
 # Build settings
 markdown: kramdown
