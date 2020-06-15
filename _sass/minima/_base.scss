@@ -302,3 +302,29 @@ pre {
     padding-top: 5px;
   }
 }
+
+/*  Back Top Button  */
+#back-top {
+  position: fixed;
+  bottom: 30px;
+  right: 0%;
+  margin-right: 40px;
+  background-color: white;
+  // -webkit-border-radius: 10px;
+  // -moz-border-radius: 10px;
+  // border-radius: 15px;
+  // -webkit-transition: 0.7s;
+  // -moz-transition: 0.7s;
+  // transition: 0.7s;
+  /*behavior: url(/css/PIE.htc);*/
+}
+#back-top:hover {
+  background-color: red;
+}
+#back-top a {
+  background: #ddd url(/assets/back-to-top.png) center;
+  color: #fff;
+  text-decoration: none;
+  padding: 18px 18px;
+  display: inline-block;
+}

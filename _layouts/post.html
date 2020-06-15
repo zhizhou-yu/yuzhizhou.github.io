@@ -16,6 +16,12 @@ layout: default
       <span itemprop="author" itemscope itemtype="http://schema.org/Person">
         by <span itemprop="name">{{ site.author }}</span>
       </span>
+      
+      <!--添加网页访问统计-->
+      <script src="/assets/js/busuanzi.pure.mini.js"></script>
+      <span id="busuanzi_container_page_pv">
+      阅读量<span id="busuanzi_value_page_pv"></span>次
+      </span>
 
       <span>
         {% for tag in page.tags %}
@@ -49,6 +55,7 @@ layout: default
     {% endif %}
   </div>
 
+  
   {% if page.comments %}
     {% include disqus.html %}
   {% endif %}

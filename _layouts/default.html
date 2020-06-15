@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="{{ page.lang | default: site.lang | default: "zh-cn" }}">
 
   {% include head.html %}
 
   <body>
-
+  <!-- <body> -->
+    
     {% include header.html %}
 
     <main class="page-content" aria-label="Content">
@@ -12,20 +14,12 @@
         {{ content }}
       </div>
     </main>
-    
+
+    {% include table_contents.html %}
+
     {% include footer.html %}
+
+    {% include back_top_button.html %}
 
   </body>
 </html>
-<script src="/assets/scrollnav.min.umd.js"></script>
-<script>
-    const ct = document.querySelector('.post-content');  //".post-content"指向文章内容所在的div，需根据实际情况修改
-    scrollnav.init(ct, { 
-        debug: false,
-        easingStyle: 'linear',
-        //section为一级目录，subsection为二级目录
-        //以下两行意为h3为一级目录，h4为二级目录（个人只需要一级目录，所以注释了二级目录）
-        // sections: ($('.post-content > h1').length>0) ? 'h3' : 'h4',  
-        //subSections: ($('.post-content > h1').length>0) ? 'h4' : 'h5',
-    });
-</script>
