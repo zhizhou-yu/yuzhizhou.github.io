@@ -190,7 +190,6 @@ div.qa {
 }
 
 .post-content {
-  margin-bottom: $spacing-unit;
 
   h2 {
     @include relative-font-size(1.8);
@@ -240,3 +239,61 @@ div.qa {
   }
 
 }
+
+
+.scroll-nav {
+  background-color: #f8f9fa;
+  border: 2px solid #a2a9b1;
+  padding: 15px 10px;
+  position: sticky;
+  top: 10px;
+  margin: -350px;
+
+  @media screen and (min-width: 700px) {
+    float: right;
+    padding: 15px 10px;
+    width: 200px;
+    
+    top: 60px;
+  }
+  
+  @media screen and (min-width: 1000px) {
+    width: 300px;
+  }
+}
+
+.scroll-nav__list, .scroll-nav__sub-list {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style-type: none;
+  line-height: 20px;
+}
+
+
+
+.scroll-nav__item {
+  margin-bottom: 5px;
+  list-style-type: none;
+}
+
+.scroll-nav__item--active > a {
+  //padding: 5px;
+  font-weight: bold;
+  position: relative;
+  color: #000000;
+  //background: $red;
+  text-decoration: none;
+  //transition: 0.5s;
+  &:hover{
+      color:black
+  }
+}
+
+.scroll-nav__link {
+  color: #e0491f;
+  text-decoration: none;
+  //display: block;
+  //margin: 0 auto;
+  //padding-left: 42px;
+}
+
