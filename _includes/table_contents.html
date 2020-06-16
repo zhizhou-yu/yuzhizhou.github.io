@@ -1,29 +1,23 @@
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> --> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
-<!-- <script src="/assets/js/toc.js" type="text/javascript"></script> -->
-
-<!-- <div id="toc"></div>
-<script type="text/javascript">
-$(document).ready(function() {
-    $('#toc').toc();
-}); </script> -->
-
-
-<!-- <link rel="stylesheet" href="/assets/css/bootstrap.min.css"> -->
-<!-- <script src="/assets/js/jquery-2.1.4.min.js" type="text/javascript"></script> -->
-<!-- <script src="/assets/js/toc.js" type="text/javascript"></script> -->
-<!-- <script src="/assets/js/bootstrap.min.js"></script> -->
-
 <script src="/assets/js/scrollnav.min.umd.js"></script> 
 <script>
-    const ct = document.querySelector('.post-content');  //".post-content"指向文章内容所在的div，需根据实际情况修改
-    scrollnav.init(ct, { 
-        debug: false,
-        easingStyle: 'linear',
-        //section为一级目录，subsection为二级目录
-        //以下两行意为h3为一级目录，h4为二级目录（个人只需要一级目录，所以注释了二级目录）
-        sections: 'h2',  
-        //subSections: ($('.post-content > h1').length>0) ? 'h4' : 'h5',
-    });
+    function isMobile(){
+        let info = navigator.userAgent;
+        let agents = ["Android", "iPhone", "SymbianOS", "Windows Phone", "iPod", "iPad"];
+        for(let i = 0; i < agents.length; i++){
+            if(info.indexOf(agents[i]) >= 0) return true;
+        }
+        return false;
+    }
+
+    if (!isMobile()) {
+        const ct = document.querySelector('.post-content');  //".post-content"指向文章内容所在的div，需根据实际情况修改
+        scrollnav.init(ct, { 
+            debug: false,
+            easingStyle: 'linear',
+            //section为一级目录，subsection为二级目录
+            //以下两行意为h3为一级目录，h4为二级目录（个人只需要一级目录，所以注释了二级目录）
+            sections: 'h2',  
+            //subSections: ($('.post-content > h1').length>0) ? 'h4' : 'h5',
+        });
+    }
 </script>
