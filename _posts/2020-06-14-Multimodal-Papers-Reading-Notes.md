@@ -1,8 +1,20 @@
 ---
-layout: post
+author: Zhizhou Yu
+header:
+  theme: dark
+  background: 'linear-gradient(135deg, rgb(34, 139, 87), rgb(139, 34, 139))'
+article_header:
+  type: overlay
+  theme: dark
+  background_color: '#203028'
+  background_image:
+    gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
+    src: /assets/header.jpg
 title: "Multimodal Papers Reading Notes 多模态论文阅读笔记"
 date: 2020-06-14 12:00:00
 tags: exploration multimodal
+comment: true
+pageview: true
 ---
 
 > 多模态学习相关的论文阅读，包含**多模态表示学习（Multimodal Representation Learning）、多模态检索（Multimodal Retrieval）、多模态匹配（Text-image Matching, etc.）**以及多模态学习的一些应用实例.
@@ -25,8 +37,9 @@ tags: exploration multimodal
 
 ​	作者核心思想是，对于出现在特定模态内的特征（modality-specific features），可以动态的计算来自不同模态的特征重要性权重，而对于非特定模态的特征（modality-invariant features）应当作为补充信息固定其重要性权重，这样达到解决冗余性问题。以下图为例，商品标题为 “粉色裙子”，那么 “纱质” 在就是来自图像模态中的 modality-specific 特征，应当动态学习其重要性权重；而 “粉色” 同时出现在标题和图片中，对应 modality-invariant 特征，应当固定其重要性权重避免冗余。
 
+
 ![淘宝检索图示例]({{ '/assets/images/taobao_goods_images.jpeg' | relative_url }})
-{: style="width: 50%;" class="center"}
+{: style="width: 50%; margin: 0 auto;"}
 *Fig. 1. 淘宝商品展示图. (Image source: [inews](https://inews.gtimg.com/newsapp_match/0/4078740630/0))*
 
 
@@ -34,7 +47,7 @@ tags: exploration multimodal
 ​	基于上述思想，MARN 模型框架如下图所示，通过 Multimodal Attention Network 来学习来自不同模态的 modality-specific 特征权重，通过 Multimodal Adversarial Network 学习跨模态 modality-invariant 特征表示。在应用到 CTR 任务上时，$$\mathcal{X}$$ 表示候选商品，$$x_i$$ 是用户行为序列中的商品。
 
 ![MARN整体框架]({{ '/assets/images/image-20200402165658014.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 2. MARN整体框架示意图. (Image source: [X Li et al.](https://dl.acm.org/doi/pdf/10.1145/3366423.3380163))*
 
 
@@ -68,7 +81,7 @@ s_{i} &=\sum_{m=1}^{M} \operatorname{atten}_{i}^{m} \odot s_{i}^{m} \\
 $$
 
 ![Multimodal Attention Fusion Network]({{ '/assets/images/image-20200402180943608.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 80%; margin: 0 auto;" }
 *Fig. 3. Multimodal Attention Fusion Network. (Image source: [X Li et al.](https://dl.acm.org/doi/pdf/10.1145/3366423.3380163))*
 
 
@@ -85,7 +98,7 @@ $$
   ​	第二个判别器 $$D_1$$ 同样也是一个 M-class 的分类器最小化模态之间的 JS 散度，此时第一个判别器得到的 $$w^i(x)$$ 会作为增强 modality-invariant 特征的权重对 $$D_0$$ 的输出进行增强后输入到 $$D_1$$ 中，进行对抗训练。简单来说，判别器 $$D_0$$ 用于识别 modality-invariant 特征并得到的贡献度，判别器 $$D_1$$ 则根据 $$D_0$$ 得到的贡献度，用于更好的完成模态间知识迁移得到最终的 modality-invariant 特征 $$c_i$$。
 
   ![DDMA]({{ '/assets/images/image-20200402183917664.png' | relative_url }})
-  {: style="width: 100%;" class="center"}
+  {: style="width: 80%; margin: 0 auto;" }
   *Fig. 4. Double-Discriminators Multimodal Adversarial（DDMA）. (Image source: [X Li et al.](https://dl.acm.org/doi/pdf/10.1145/3366423.3380163))*
   
 
@@ -110,20 +123,20 @@ $$
 ​	作者指出，现有的多模态预训练模型，存在两方面问题：一是预训练任务比较简单，例如 masked language/Object modeling 任务以及 image-text matching 任务；二是 single-stream 类模型例如 Unicoder-VL （见下图1）仅仅是用 BERT 模型来融合两个模态的信息，而 two-stream 类模型例如 ViLBERT、LXMERT （见下图2、3）仅仅通过 co-attention 融合各个 stream 的信息，缺乏 stream 内的 self-attention（原文：where there is no self attention to the self-context in each stream in the co-attention layers）。基于上述，作者提出 InterBERT，包含一个 single-stream cross-modal encoder 除了各个模态的输入，并使用 two-stream encoder 分别处理不同模态的信息，以最大程度的进行模态间信息交互同时保留各个模态的独立性信息。另外，作者还提供了一个基于淘宝的 3.1M 大小的中文 image-text 多模态预训练数据集。
 
 ![Unicoder-VL]({{ '/assets/images/image-20200404192043709.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 
 *Fig. 1. Unicoder-VL 框架示意图. (Image source: [G Li et al.](https://arxiv.org/pdf/1908.06066))*
 
 
 ![ViLBERT]({{ '/assets/images/image-20200404192242479.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 
 
 *Fig. 2. ViLBERT 框架示意图. (Image source: [J Lu et al.](http://papers.nips.cc/paper/8297-vilbert-pretraining-task-agnostic-visiolinguistic-representations-for-vision-and-language-tasks.pdf))*
 
 
 ![LXMERT]({{ '/assets/images/image-20200404192534932.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 
 *Fig. 3. LXMERT 框架示意图. (Image source: [H Tan et al.](https://arxiv.org/pdf/1908.07490))*
 
@@ -134,7 +147,7 @@ $$
 ​	InterBERT 模型框架图如下图所示，主要包括 Image Embedding、Text Embedding、Single-Stream Interaction Module 以及 Two-Stream Independence Module。
 
 ![InterBERT]({{ '/assets/images/image-20200404200455793.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 4. InterBERT 框架示意图. (Image source: [J Lin et al.](https://arxiv.org/pdf/2003.13198))*
 
 
@@ -172,7 +185,7 @@ $$
 ​	IMRAM 框架示意图如下图所示。	
 
 ![IMRAM]({{ '/assets/images/image-20200405145107898.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 1. IMRAM 框架示意图. (Image source: [H Chen et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_IMRAM_Iterative_Matching_With_Recurrent_Attention_Memory_for_Cross-Modal_Image-Text_CVPR_2020_paper.pdf))*
 
 
@@ -256,7 +269,7 @@ $$
 ​	多模态学习的方法一般是学习一个联合的嵌入表示，这种方式不足以表达复杂的场景、对象以及行为等之间的复杂关系；与此同时， 现有的 video-text 匹配方法采取类似 image-text 匹配的方法以序列化的方式学习 frame 与 words 之间的关系再进行对齐，这种方法在 image-text 中效果不错，但在 video-text 匹配中由于 video 和 text 的 pair 对之间监督关系更弱因此效果不佳。为了更好地进行细粒度的 video-text 检索，作者提出分层图推理 (Hierarchical Graph Resoning，HGR) 模型，将 video-text 匹配问题转换到 global-to-local 层次，如下图所示，通过分解为 events、actions 以及 entities 三个层次进行。
 
 ![分层图推理]({{ '/assets/images/image-20200406162216451.png' | relative_url }})
-{: style="width: 50%;" class="center"}
+{: style="width: 50%; margin: 0 auto;" }
 *Fig. 1. 分层图推理（Hierarchical Graph Resoning, HGR）. (Image source: [S Chen et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Fine-Grained_Video-Text_Retrieval_With_Hierarchical_Graph_Reasoning_CVPR_2020_paper.pdf))*
 
 
@@ -265,7 +278,7 @@ $$
 ​	如下图所示，HGR 模型主要包含三个模块：hierarchical textual encoding、hierarchical video encoding 以及 video-text matching。
 
 ![HGR模块]({{ '/assets/images/image-20200406164757982.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 2. HGR的三个主要模块. (Image source: [S Chen et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Fine-Grained_Video-Text_Retrieval_With_Hierarchical_Graph_Reasoning_CVPR_2020_paper.pdf))*
 
 **1. hierarchical textual encoding**
@@ -275,7 +288,7 @@ $$
 - **Semantic Role Graph Structure**：给定视频的文本描述 $$C=\{c_1, c_2, ..., c_N\}$$，$$C$$ 首先会作为 event 节点，随后使用语义角色分析工具[^1] 获取 $$C$$ 中的动词、名词以及名词在对应的动词中扮演的语义角色信息（角色类型详见下表）。动词会被视为 action 节点并和 event 节点通过有向边连接，名词会被视为 entity节点，一个语义角色图的构建如上图左部所示。
 
   ![语义角色构建]({{ '/assets/images/image-20200406175859288.png' | relative_url }})
-  {: style="width: 50%;" class="center"}
+  {: style="width: 50%; margin: 0 auto;" }
   *Fig. 3. 语义角色构建. (Image source: [S Chen et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Chen_Fine-Grained_Video-Text_Retrieval_With_Hierarchical_Graph_Reasoning_CVPR_2020_paper.pdf))*
 
 - **Initial Graph Node Representation**：此部分初始化不同类型节点的嵌入表示，对于 event 节点首先通过 Bi-LSTM 学习每个单词的表示 $$w_i$$，随后使用注意力加权得到 global event embedding 表示 $$g_e$$：
@@ -347,7 +360,7 @@ $$
 ​	现有的 Image-Text 匹配方法基本上都是学习粗糙的图文对应关系，即基于图片中对象的共现对应关系（如下图左部所示），因而缺乏细粒度的词组对应关系（如下图右部所示），这种现象会导致模型难以正确的学习对应关系，例如在粗粒度下 "dog" 和图片中的狗产生交叉对应。因此，作者提出图结构化匹配网络（Graph Structured Matching Network，GSMN）将对象、关系以及属性建模为结构化短语以学习细粒度的对应关系（如下图中下部所示）。
 
 ![细粒度对应关系]({{ '/assets/images/image-20200408120206217.png' | relative_url }})
-{: style="width: 75%;" class="center"}
+{: style="width: 50%; margin: 0 auto;" }
 *Fig. 1. 细粒度对应关系. (Image source: [C Liu et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liu_Graph_Structured_Network_for_Image-Text_Matching_CVPR_2020_paper.pdf))*
 
 ### Method
@@ -355,7 +368,7 @@ $$
 ​	GSMN 的框架图如下图所示，主要分为三大模块：特征表示模块（Feature Representation）、图构建模块（Graph Construction） 以及多模图匹配模块（Multimodal Graph Matching），其中多模图匹配模块具体分为 Node-level 和 Structure-level 匹配。
 
 ![GSMN框架示意图]({{ '/assets/images/image-20200408134920491.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 2. GSMN框架示意图. (Image source: [C Liu et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Liu_Graph_Structured_Network_for_Image-Text_Matching_CVPR_2020_paper.pdf))*
 
 
@@ -431,7 +444,7 @@ $$
 ​	区别于大部分基于提取图像 region 并对齐文本的方法，提取图像 region 时使用 bounding box 标注会带来一些问题包括信息受损和重叠冗余，如下图，对于 (A) 提取”飞机“后无法判断飞机的状态，对于 (B) 提取”运动员“与”地面“后由于 bbox 存在重叠难以进行特征融合，对于 (C) 提取”长颈鹿“后无法判断其运动状态；除此之外，基于 region 提取的方法表达能力受限于预训练模型如 Faster-RCNN 所能提取的对象类别。因此作者提出直接通过对齐图像的像素与文本以解决上述问题。
 
 ![存在的问题]({{ '/assets/images/image-20200408180356644.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 1. 存在的问题. (Image source: [Z Huang et al.](https://arxiv.org/pdf/2004.00849))*
 
 
@@ -440,7 +453,7 @@ $$
 ​	提出的 Pixel-BERT 模型框架如下图所示，包含视觉特征和文本特征嵌入模块（CNN-based Visual Encoder、Sentence Encoder），跨模态对齐模块（Cross-modality Alignment）并通过 Masked Language Model、Image-Text Matching 任务进行预训练。Pixel-BERT 属于 Single-Stream 类模型，即使用单个 Transformer 结构处理 image 和 text 模态的联合输入。
 
 ![PixelBERT框架示意图]({{ '/assets/images/image-20200409120429497.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 2. PixelBERT框架示意图. (Image source: [Z Huang et al.](https://arxiv.org/pdf/2004.00849))*
 
 
@@ -470,7 +483,7 @@ $$
 ​	视频定位（Video Grounding）任务的一个难点在于对于一个包含数千帧的视频，仅仅存在一些标注的起始/终止帧可以作为正样本（如下图所示），对于这种不平衡数据，大多数传统方法直接训练一个二分类器，缺乏利用 groundtruth 边界内的帧信息造成结果往往不够好。作者提出，可以使用所有 groundtruth 片段内的帧与起始/终止帧的距离作为密集监督信号来改善最终定位的准确性。
 
 ![正样本不足]({{ '/assets/images/image-20200410131323772.png' | relative_url }})
-{: style="width: 75%;" class="center"}
+{: style="width: 75%; margin: 0 auto;" }
 *Fig. 1. 正样本不足. (Image source: [R Zeng et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Zeng_Dense_Regression_Network_for_Video_Grounding_CVPR_2020_paper.pdf))*
 
 
@@ -483,7 +496,7 @@ $$
 [^4]: Zhi Tian, Chunhua Shen, Hao Chen, et al. Fcos:Fully convolutional one-stage object detection.
 
 ![DRN]({{ '/assets/images/image-20200410143746436.png' | relative_url }})
-{: style="width: 100%;" class="center"}
+{: style="width: 100%; margin: 0 auto;" }
 *Fig. 1. DRN框架示意图. (Image source: [R Zeng et al.](http://openaccess.thecvf.com/content_CVPR_2020/papers/Zeng_Dense_Regression_Network_for_Video_Grounding_CVPR_2020_paper.pdf))*
 
 

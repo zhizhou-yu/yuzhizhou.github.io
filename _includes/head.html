@@ -1,75 +1,26 @@
-<head>
-    {% if site.tags != "" %}
-      {% include tags.html %}
-    {% endif %}
-    
-    <meta name="baidu-site-verification" content="mzY9myKsqi" />
-	<meta name="google-site-verification" content="L982OYBqRcSkrA-3ZlumdIFPHBvn1RC1z-gArJg0EOg" />
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="baidu-site-verification" content="mzY9myKsqi" />
+<meta name="google-site-verification" content="L982OYBqRcSkrA-3ZlumdIFPHBvn1RC1z-gArJg0EOg" />
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+{%- include snippets/get-article-title.html article=page -%}
+<title>{%- if __return -%}{{ __return }} - {{ site.title }}{%- else -%}{{ site.title }}{%- endif -%}</title>
 
-    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+<meta name="description" content="{%- if page.excerpt -%}{{ page.excerpt | strip_html | strip_newlines | strip | truncate: 160 }}{%- else -%}{{ site.description }}{%- endif -%}">
+<link rel="canonical" href="{%- include snippets/page-url.html -%}">
 
-    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+{%- assign _paths_rss = site.paths.rss | default: site.data.variables.default.paths.rss -%}
+{%- include snippets/get-nav-url.html path=_paths_rss -%}
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ __return }}">
 
-    <meta content="{{ site.title }}" property="og:site_name">
-    {% if page.title %}
-        <meta content="{{ page.title }}" property="og:title">
-    {% else %}
-        <meta content="{{ site.title }}" property="og:title">
-    {% endif %}
-    {% if page.title %}
-        <meta content="article" property="og:type">
-    {% else %}
-        <meta content="website" property="og:type">
-    {% endif %}
-    {% if page.excerpt %}
-        <meta content="{{ page.excerpt | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | strip |  truncatewords: 50 }}" property="og:description">
-    {% else %}
-        <meta content="{{ site.description }}" property="og:description">
-    {% endif %}
-    {% if page.url %}
-        <meta content="{{ site.url }}{{ page.url }}" property="og:url">
-    {% endif %}
-    {% if page.date %}
-        <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
-        <meta content="{{ site.url }}/about/" property="article:author">
-    {% endif %}
-    {% if page.image %}
-        <meta content="/img/srcset/{{ page.image }}" property="og:image">
-    {% endif %}
-    {% if page.tags %}
-        {% for tag in page.tags %}
-        <meta content="{{ tag }}" property="article:tag">
-        {% endfor %}
-    {% endif %}
+{%- include head/favicon.html -%}
 
+{%- include snippets/prepend-baseurl.html path='/assets/css/main.css' -%}
+<link rel="stylesheet" href="{{ __return }}">
 
-    <link rel="shortcut icon" href="{{ '/assets/favicon_girl.ico' | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
-    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+{%- include snippets/get-sources.html -%}
+{%- assign _sources = __return -%}
+<link rel="stylesheet" href="{{ _sources.font_awesome }}" >
 
-    <!-- For Latex -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
-
-    <!-- Google Analytics -->
-    <script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-    
-    ga('create', 'UA-169297680-1', 'auto');
-    ga('send', 'pageview');
-    </script>
-    <!-- End Google Analytics -->
-
-    <!-- Redirection to https -->
-    <!-- <script>
-        // 判断非本机且未使用 https 时，强制重定向到 https。
-        if ((!window.location.host.startsWith("localhost")) && (window.location.protocol != "https:"))
-            window.location = window.location.toString().replace(/^http:/, "https:");
-    </script> -->
-</head>
+{%- include head/custom.html -%}
