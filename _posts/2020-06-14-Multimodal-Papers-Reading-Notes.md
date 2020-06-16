@@ -1,8 +1,8 @@
 ---
 author: Zhizhou Yu
+mode: immersive
 header:
   theme: dark
-  background: 'linear-gradient(135deg, rgb(34, 139, 87), rgb(139, 34, 139))'
 article_header:
   type: overlay
   theme: dark
@@ -14,18 +14,16 @@ title: "Multimodal Papers Reading Notes 多模态论文阅读笔记"
 date: 2020-06-14 12:00:00
 tags: exploration multimodal
 comment: true
-visitor: true
 ---
 
-> 多模态学习相关的论文阅读，包含**多模态表示学习（Multimodal Representation Learning）、多模态检索（Multimodal Retrieval）、多模态匹配（Text-image Matching, etc.）**以及多模态学习的一些应用实例.
+>多模态学习相关的论文阅读，包含**多模态表示学习（Multimodal Representation Learning）、多模态检索（Multimodal Retrieval）、多模态匹配（Text-image Matching, etc.）**以及多模态学习的一些应用实例.
+
 
 <!--more-->
 
 随着 Web 技术发展，互联网上包含大量的多模态信息（包括文本，图像，语音，视频等）。从海量多模态信息搜索出重要信息一直是学术界研究重点。本文主要记录一些近期阅读的多模态论文阅读笔记。
+{:.info}
 
-<!-- {: class="table-of-content"} -->
-<!-- * TOC
-{:toc #markdown-toc} -->
 
 ## Adversarial Multimodal Representation Learning for Click-Through Rate Prediction           									  --- WWW 2020, Alibaba Group
 
