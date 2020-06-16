@@ -127,11 +127,12 @@ comments:
   ## Gitalk
   # please refer to https://github.com/gitalk/gitalk for more info.
   gitalk:
-    clientID    : "909f1f95566d9e449995" # GitHub Application Client ID
-    clientSecret: "ab66d915220a15ad2dbc01302ea817bfaa31f47d" # GitHub Application Client Secret
-    repository  : "zhizhou-yu.github.io" # GitHub repo
-    owner       : "zhizhou-yu" # GitHub repo owner
-    admin: "zhizhou-yu"
+    clientID    : 909f1f95566d9e449995 # GitHub Application Client ID
+    clientSecret: ab66d915220a15ad2dbc01302ea817bfaa31f47d # GitHub Application Client Secret
+    repository  : zhizhou-yu.github.io # GitHub repo
+    owner       : zhizhou-yu # GitHub repo owner
+    admin: # Github repo owner and collaborators, only these guys can initialize github issues
+      - zhizhou-yu
 
   ## Valine
   # please refer to https://valine.js.org/en/ for more info.
