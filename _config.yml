@@ -140,20 +140,20 @@ comments:
     app_id      : Ext0aqnRnt2t1Cz8UVN0YBGT-gzGzoHsz # LeanCloud App id
     app_key     : XPVq85EpAr2YJmevLko0J7Oj # LeanCloud App key
     placeholder : # Prompt information
-    visitor     : true # false (default)
+    visitor     : # false (default)
     meta        : # "[nick, mail, link]" (default) nickname, E-mail, Personal-site
 
 
 ## => Pageview
 ##############################
 pageview:
-  provider: false # false (default), "leancloud", "custom"
+  provider: true # false (default), "leancloud", "custom"
 
   ## Leancloud
   leancloud:
     app_id    : Ext0aqnRnt2t1Cz8UVN0YBGT-gzGzoHsz # LeanCloud App id
     app_key   : XPVq85EpAr2YJmevLko0J7Oj # LeanCloud App key
-    app_class : # LeanCloud App class
+    app_class : Counter # LeanCloud App class
 
 
 ## => Search
