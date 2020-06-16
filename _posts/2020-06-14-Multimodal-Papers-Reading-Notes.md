@@ -13,7 +13,7 @@ article_header:
 title: "Multimodal Papers Reading Notes 多模态论文阅读笔记"
 date: 2020-06-14 12:00:00
 tags: exploration multimodal
-comment: true
+key: 2020-06-14-Multimodal-Papers-Reading-Notes
 ---
 
 >多模态学习相关的论文阅读，包含**多模态表示学习（Multimodal Representation Learning）、多模态检索（Multimodal Retrieval）、多模态匹配（Text-image Matching, etc.）**以及多模态学习的一些应用实例.
