@@ -31,7 +31,6 @@ body {
        -o-font-feature-settings: "kern" 1;
           font-feature-settings: "kern" 1;
   font-kerning: normal;
-
 }
 
 .share-buttons {
@@ -306,7 +305,7 @@ pre {
 /*  Back Top Button  */
 #back-top {
   position: fixed;
-  bottom: 30px;
+  bottom: 20px;
   right: 0%;
   margin-right: 40px;
   background-color: white;
@@ -322,8 +321,8 @@ pre {
   background-color: red;
 }
 #back-top a {
-  background: #ddd url(/assets/back-to-top.png) center;
-  color: #fff;
+  background: white url(/assets/back-to-top.png) center;
+  color: white;
   text-decoration: none;
   padding: 18px 18px;
   display: inline-block;

@@ -190,7 +190,7 @@ div.qa {
 }
 
 .post-content {
-
+  // width: $content-width * 0.8;
   h2 {
     @include relative-font-size(1.8);
 
@@ -244,14 +244,15 @@ div.qa {
 .scroll-nav {
   background-color: #f8f9fa;
   border: 2px solid #a2a9b1;
-  padding: 15px 10px;
-  position: sticky;
-  top: 10px;
-  margin-right: -350px;
+  padding: 10px 10px;
+  font-size: 16px;
+  position: fixed;
+  margin-top: 13px;
+  right: 0;
 
   @media screen and (min-width: 700px) {
     float: right;
-    padding: 15px 10px;
+    padding: 10px 10px;
     width: 200px;
     
     top: 60px;
@@ -280,12 +281,12 @@ div.qa {
   //padding: 5px;
   font-weight: bold;
   position: relative;
-  color: #000000;
+  color: blue;
   //background: $red;
   text-decoration: none;
   //transition: 0.5s;
   &:hover{
-      color:black
+      color:blue
   }
 }
 
@@ -297,3 +298,43 @@ div.qa {
   //padding-left: 42px;
 }
 
+// 目录布局
+
+#markdown-toc {
+  display: none;
+  font-size: 16px;
+  list-style: none;
+  position: fixed;
+  padding-left: 0;
+ 
+  top: 5rem;
+  right: 0;
+   
+  // width: calc(50vw - 19.5rem);      // All free parts on the lefts
+  max-height: calc(100vh - 9rem);   // Remove navigation bar and footer
+  @media (min-width: 60rem) {
+    display: inline-block;
+  }
+  
+  &::before {
+    content: "TOC";
+    padding-left: .5rem;
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  & ol {
+    padding-left: 0;
+    margin-bottom: 0;
+  } 
+  
+  & li {
+    max-width: 5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    
+    margin: 0 .5rem;
+    padding-left: 0;
+  }
+}
