@@ -24,6 +24,8 @@ key: 2020-06-14-Multimodal-Papers-Reading-Notes
 随着 Web 技术发展，互联网上包含大量的多模态信息（包括文本，图像，语音，视频等）。从海量多模态信息搜索出重要信息一直是学术界研究重点。本文主要记录一些近期阅读的多模态论文阅读笔记。
 {:.info}
 
+* TOC
+{:toc}
 
 ## Adversarial Multimodal Representation Learning for Click-Through Rate Prediction           									  --- WWW 2020, Alibaba Group
 
