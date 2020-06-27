@@ -13,7 +13,7 @@ article_header:
 title: "Self-supervised Learning: Generative or Contrastive 自监督学习综述阅读笔记"
 date: 2020-06-26 12:00:00
 tags: self-supervised-learning
-key: 2020-06-27-Self-supervised-Learning-Generative-or-Contrastive
+key: 2020-06-27-Self-supervised-Learning-Survey
 ---
 
 >这是一篇清华大学 [Tang Jie](https://scholar.google.com/citations?user=n1zDCkQAAAAJ&hl=en&oi=ao) 等人在 2020 年 6 月提出的自监督学习（self-supervised learning）最新的综述文章，本文进行简单的内容梳理。
