@@ -28,7 +28,9 @@ key: page-about
 
 <center><img src="/assets/images/zhizhou-photo.png" width="320" height="320"/></center>
 
-<p>This is Zhizhou! I'm currently working for Alibaba @ <a href="https://alibabagroup.com/" target="_blank">AlibabaGroup</a>. I'm documenting my learning notes in this blog. Send me an email: yuzhizhou123 AT gmail.com if you have questions or find errors. Thanks :)</p>
+<p>Hi, This is Zhizhou! I'm currently working for Alibaba @ <a href="https://alibabagroup.com/" target="_blank">AlibabaGroup</a>. I'm documenting my learning notes in this blog. Send me an email: yuzhizhou123@gmail.com if you have questions or find errors. Thanks :)</p>
+
+<p>嗨！我是余志州! 现在就职于阿里巴巴的搜索推荐事业部 @ <a href="https://alibabagroup.com/" target="_blank">阿里巴巴集团</a>。这是我用于记载学习笔记和工作总结的个人博客。如果你发现了任何错误或是有任何疑问请发邮件到: yuzhizhou123@gmail.com 欢迎提出意见~ 记得常来看看:)</p>
 	
 <p>Here are a selection of papers of mine that I especially like:
   <ol>
@@ -36,6 +38,6 @@ key: page-about
   </ol>
 </p>
 
-```
+
 虽然岁月匆匆人渐老，日子却天天新模样，愿你容颜天天16岁，永远美丽又俊俏 :P;
-```
+{: .info}
