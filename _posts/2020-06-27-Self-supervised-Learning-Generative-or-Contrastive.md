@@ -10,7 +10,7 @@ article_header:
   background_image:
     gradient: 'linear-gradient(135deg, rgba(34, 139, 87 , .4), rgba(139, 34, 139, .4))'
     src: /assets/header.jpg
-title: "Self-supervised Learning: Generative or Contrastive 自监督学习综述阅读笔记"
+title: "Self-supervised Learning: Generative or Contrastive 自监督学习2020综述"
 date: 2020-06-26 12:00:00
 tags: self-supervised-learning
 key: 2020-06-27-Self-supervised-Learning-Survey
@@ -141,7 +141,7 @@ Context-Instance Contrast，又称为 Global-local Contrast，重点建模样本
   \mathcal{L}=\mathbb{E}_{v, x}\left[-\log \left(\frac{e^{v^{T} \cdot s}}{e^{v^{T \cdot s}}+e^{v^{T} \cdot s^{-}}}\right)\right]
   $$
 
-  Deep Infomax 给出了自监督学习的新范式，这方面工作较有影响力的跟进，最先有在 speech recognition 领域的 CPC 模型，CPC 将音频片段与其上下文音频之间的关联最大化。为了提高数据效率，它需要同时使用几个负的上下文向量，CPC 随后也被应用到图像分类中。AMDIM 模型提出通过随机生成一张图像的不同 views（截断、变色等）用于生成局部特征向量和上下文向量，其与 Deep Infomax 的对比如下图 5 所示，Deep Infomax 首先通过编码器得到图像的特征图，随后通过 readout（summary function）得到上下文向量，而 AMDIM 则通过随机选择图像的另一个 view 来生成上下文向量。
+  Deep Infomax 给出了自监督学习的新范式，这方面工作较有影响力的跟进，最先有在 speech recognition 领域的 CPC 模型，CPC 将音频片段与其上下文音频之间的互信息最大化。为了提高数据利用效率，它需要同时使用几个负的上下文向量，CPC 随后也被应用到图像分类中。AMDIM 模型提出通过随机生成一张图像的不同 views（截断、变色等）用于生成局部特征向量和上下文向量，其与 Deep Infomax 的对比如下图 5 所示，Deep Infomax 首先通过编码器得到图像的特征图，随后通过 readout（summary function）得到上下文向量，而 AMDIM 则通过随机选择图像的另一个 view 来生成上下文向量。
 
   ![Deep Infomax and AMDIM]({{ '/assets/images/deep-infomax-and-amdim.png' | relative_url }})
   {: style="width: 50%; margin: 0 auto;"}
