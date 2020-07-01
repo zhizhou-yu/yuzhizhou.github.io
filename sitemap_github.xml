@@ -39,9 +39,13 @@
 </url>
 <url>
   <loc>https://zhizhou-yu.github.io/2020/06/26/Self-supervised-Learning-Generative-or-Contrastive.html</loc>
-  <lastmod>2020-06-17T01:34:40+00:00</lastmod>
+  <lastmod>2020-06-26T01:34:40+00:00</lastmod>
   <priority>0.80</priority>
 </url>
-
+<url>
+  <loc>https://zhizhou-yu.github.io/2020/07/03/Self-supervised-Learning-for-vision-and-language.html</loc>
+  <lastmod>2020-07-03T01:34:40+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 
 </urlset>
