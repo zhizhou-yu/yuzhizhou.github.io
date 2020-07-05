@@ -173,7 +173,7 @@ Video-and-Language 自监督学习算法相对来说关注度更少，下面主�
 
 HowTo100M 数据集对应的论文中也提出了一个较为简单的自监督学习算法。如下图所示，Video 表示通过在 ImageNet 数据集上预训练的 ResNet-152 提取 2D 表示，而 3D 表示则通过在 Kinetics 数据集上预训练的 ResNeXt-101 提取，文本表示则通过预训练的 word2vec 提取嵌入表示。在训练时，video 和 text 的联合表示通过非线性映射得到，并使用 max-margin ranking loss 进行监督学习。
 
-![how-to-100m]({{ '/assets/images/how-to-100m.png' | relative_url }})
+![how-to-100m]({{ '/assets/images/how-to-100M.png' | relative_url }})
 {: style="width: 100%; margin: 0 auto;"}
 ***Fig. 14.** HowTo100M 算法. (Image source: [Licheng Yu et al.](https://github.com/rohit497/Recent-Advances-in-Vision-and-Language-Research/blob/master/slides/tutorial-part5-pretraining.pdf))*
 
@@ -201,7 +201,7 @@ VideoBERT，使用 Transformer 进行训练得到 Video 和 Text 的联合表示
 
 ![UniViLM]({{ '/assets/images/UniViLM.png' | relative_url }})
 {: style="width: 100%; margin: 0 auto;"}
-***Fig. 19.** UniViLM 算法. (Image source: [Licheng Yu et al.](https://github.com/rohit497/Recent-Advances-in-Vision-and-Language-Research/blob/master/slides/tutorial-part5-pretraining.pdf))*
+***Fig. 18.** UniViLM 算法. (Image source: [Licheng Yu et al.](https://github.com/rohit497/Recent-Advances-in-Vision-and-Language-Research/blob/master/slides/tutorial-part5-pretraining.pdf))*
 
 整体来看，Video-and-Language 自监督学习仍处于初级阶段，video 表示和 text 表示是直接融合的，一定程度上丧失了时序对齐性。预训练任务方面也没有很大的创新，基本都是参考 Image-Text 领域，训练的数据集也受限，目前主要都是集中在 Youtube 视频上，这也导致能够拓展的下游任务相对“简单”。
 
