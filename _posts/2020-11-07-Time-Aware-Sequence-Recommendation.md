@@ -25,7 +25,7 @@ key: Time-Aware-Sequence-Recommendation
 
 ## 摘要
 
-Sequential Recommned System 试图利用用户历史行为序列（点击、购买等），来预测用户的下一步行动。经典方法如马尔可夫链（Markov Chains）、递归神经网络（RNN）和自注意力（Self-Attention）由于具有捕捉序列动态模式的能力而被广泛应用。但是，大多数这些模型都做了一个简化假设：仅将历史行为序列记录视为有序序列，而不考虑每次行为之间的时间间隔（time interval），换句话说，它们是在对时序进行建模而不对实际的时间戳进行建模。在本文中，我们试图在序列推荐框架中显式地建模序列内行为之间的时间戳，以探索不同时间间隔对 next item 预测的影响。我们提出了具有时间间隔感知的自注意序列推荐模型 TiSASRec(Time Interval aware Self-attention based sequential recommendation），该模型可以同时对 item 的绝对位置（position）以及它们之间的时间间隔进行建模。实验结果表明，我们的方法在稀疏和密集数据集上表现均优于各种最新的序列推荐模型。
+Sequential Recommned System 试图利用用户历史行为序列（点击、购买等），来预测用户的下一步行动。经典方法如马尔可夫链（Markov Chains）、递归神经网络（RNN）和自注意力（Self-Attention）由于具有捕捉序列动态模式的能力而被广泛应用。但是，大多数这些模型都做了一个简化假设：仅将历史行为序列记录视为有序序列，而不考虑每次行为之间的时间间隔（time interval），换句话说，它们是在对时序进行建模而不对实际的时间戳进行建模。在本文中，我们试图在序列推荐框架中显式地建模序列内行为之间的时间戳，以探索不同时间间隔对 next item 预测的影响。我们提出了具有时间间隔感知的自注意序列推荐模型 TiSASRec(Time Interval aware Self-attention based sequential recommendation），该模型可以同时对 item 的绝对位置（position）以及它们之间的时间间隔进行建模。实验结果表明，我们的方法在稀疏和密集数据集上表现均优于各种最新的序列推荐模型。 
 
 
 ## 引言
